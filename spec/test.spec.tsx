@@ -1,23 +1,26 @@
 import React from 'react';
-import { Provider, useSelector } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
 
-import App from '../src/app';
-import Location from '../src/components/Location';
-import store from '../src/store';
+import actionTypes from '../src/store/constants';
+import { setCity, setCurrentTheme } from '../src/store/mainReducer';
 import { expect, jest, test } from '@jest/globals';
-import { render } from '@testing-library/react';
 
 jest.mock('react-redux');
 
 describe('Location', () => {
-  it('should create location with empty input', () => {
-    render(
-      <Provider store={store}>
-        <PersistGate persistor={persistor}>
-          <App />
-        </PersistGate>
-      </Provider>,
-    );
+  it('should create location', () => {
+    const payload = 'Minsk';
+    const expectation = {
+      type: actionTypes.setCurrentCity,
+      payload,
+    };
+    expect(setCity(payload)).toEqual(expectation);
+  });
+  it('should change theme', () => {
+    const payload = 'sun';
+    const expectation = {
+      type: actionTypes.switchTheme,
+      payload,
+    };
+    expect(setCurrentTheme(payload)).toEqual(expectation);
   });
 });

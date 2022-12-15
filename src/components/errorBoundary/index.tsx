@@ -1,23 +1,27 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+export interface Props {
+  children?: ReactNode;
+}
+
+export interface State {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError() {
+  static getDerivedStateFromError(): State {
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
-    console.log(error);
-    console.log(errorInfo);
-  }
-
   render() {
-    if (this.state.hasError) {
+    const { children } = this.props;
+    const { hasError } = this.state;
+    if (hasError) {
       return (
         <h1>
           Ooops! Sorry! Something went wrong. We are solving this problem
@@ -25,13 +29,8 @@ class ErrorBoundary extends React.Component {
         </h1>
       );
     }
-
-    return this.props.children;
+    return children;
   }
 }
-
-ErrorBoundary.propTypes = {
-  children: PropTypes.any,
-};
 
 export default ErrorBoundary;

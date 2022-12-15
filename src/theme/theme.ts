@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
-export const baseTheme: DefaultTheme = {
+const baseTheme: DefaultTheme = {
   colors: {
     dark: '#1c1c1c',
     defaultWhite: '#fff',
@@ -14,7 +14,9 @@ export const baseTheme: DefaultTheme = {
     grayishBlue: '#282c34',
   },
   sizes: {
-    width: 42 | 70 | 350 | 400 | 700,
-    height: 42 | 120,
+    width: 42 || 70 || 350 || 400 || 700,
+    height: 42 || 120,
   },
 };
+
+export default baseTheme;

@@ -1,13 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
+import { uuid } from '@/constants';
 import {
-  getIconsForWeatherInHours,
   getTemperatureForSevenDays,
   getWeatherForSevenDates,
-  getWeatherHours,
   getWeatherIconsForSevenDays,
-  getWeatherTemperatureInHours,
 } from '@/store/selectors';
 import {
   DatesWrapper,
@@ -17,33 +15,30 @@ import {
   WeatherWrapper,
 } from '@/styles/styles';
 
-const Weather = () => {
+const WeatherInDays = () => {
   const dates = useSelector(getWeatherForSevenDates);
   const icons = useSelector(getWeatherIconsForSevenDays);
   const temperature = useSelector(getTemperatureForSevenDays);
-  const hours = useSelector(getWeatherHours);
-  const tempInHours = useSelector(getWeatherTemperatureInHours);
-  const iconsForHours = useSelector(getIconsForWeatherInHours);
 
   return (
     <WeatherWrapper>
-      <DatesWrapper>
-        {dates.map((item, index) => (
-          <div key={index}>{item}</div>
+      <DatesWrapper id="weekDates">
+        {dates.map((item) => (
+          <div key={uuid()}>{item}</div>
         ))}
       </DatesWrapper>
-      <WeatherIconsWrapper>
-        {icons.map((item, index) => (
-          <WeatherImg key={index} icon={item}></WeatherImg>
+      <WeatherIconsWrapper id="weekIcons">
+        {icons.map((item) => (
+          <WeatherImg key={uuid()} icon={item} />
         ))}
       </WeatherIconsWrapper>
-      <TemperatureWrapper>
-        {temperature.map((item, index) => (
-          <div key={index}>{item}C</div>
+      <TemperatureWrapper id="weekTemperature">
+        {temperature.map((item) => (
+          <div key={uuid()}>{item}C</div>
         ))}
       </TemperatureWrapper>
     </WeatherWrapper>
   );
 };
 
-export default Weather;
+export default WeatherInDays;

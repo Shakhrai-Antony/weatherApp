@@ -3,7 +3,6 @@ import {
   GoogleLogin,
   GoogleLoginResponse,
   GoogleLogout,
-  UseGoogleLogoutResponse,
 } from 'react-google-login';
 import { useDispatch } from 'react-redux';
 
@@ -20,12 +19,7 @@ export const HandleLogin = () => {
   const dispatch = useDispatch();
 
   const onSuccess = (res: GoogleLoginResponse) => {
-    console.log('Login Success! Current user: ', res.profileObj);
     dispatch(setCurrentUser(res.profileObj.name));
-  };
-
-  const onFailure = (res: UseGoogleLogoutResponse) => {
-    console.log('Login Failed! res: ', res);
   };
 
   return (
@@ -33,11 +27,10 @@ export const HandleLogin = () => {
       <GoogleLogin
         clientId={clientId}
         scope="https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/calendar.events.readonly"
-        buttonText={'Login'}
+        buttonText="Login"
         onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-        isSignedIn={true}
+        cookiePolicy="single_host_origin"
+        isSignedIn
       />
     </div>
   );
@@ -47,7 +40,6 @@ export const HandleLogout = () => {
   const dispatch = useDispatch();
 
   const onSuccess = () => {
-    console.log('Log out successful!');
     dispatch(unSetCurrentUser());
   };
 
@@ -55,7 +47,7 @@ export const HandleLogout = () => {
     <div>
       <GoogleLogout
         clientId={clientId}
-        buttonText={'Logout'}
+        buttonText="Logout"
         onLogoutSuccess={onSuccess}
       />
     </div>

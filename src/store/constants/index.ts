@@ -1,4 +1,4 @@
-export const actionTypes = {
+const actionTypes = {
   switchTheme: 'switchTheme',
   getCurrentUser: 'getCurrentUser',
   removeCurrentUser: 'removeCurrentUser',
@@ -8,3 +8,4 @@ export const actionTypes = {
   setWeatherByHours: 'setWeatherByHours',
   setWeatherSwitcher: 'setWeatherSwitcher',
 };
+export default actionTypes;
