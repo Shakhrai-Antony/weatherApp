@@ -8,7 +8,7 @@ interface WeatherInHours {
 
 const instance = axios.create({
   baseURL:
-    'http://api.weatherapi.com/v1/forecast.json?key=113125d86b6a4981af971806220912&q=',
+    'https://api.weatherapi.com/v1/forecast.json?key=113125d86b6a4981af971806220912&q=',
 });
 
 const getWeatherInHours = {

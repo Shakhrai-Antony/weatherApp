@@ -3,13 +3,29 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": ".",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
     "dev": "webpack serve --open",
     "test:cypress": "start-server-and-test start http://localhost:9000 cypress",
     "cypress:": "cypress run",
-    "test:jest": "jest"
+    "test:jest": "jest",
+    "build": "webpack --mode=development",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +33,7 @@
     "@craco/craco": "^7.0.0",
     "axios": "^1.2.1",
     "gapi-script": "^1.2.0",
+    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-login": "^5.2.2",

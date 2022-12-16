@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
-import Location from '@/components/Location';
 import CalendarEvents from '@/components/calendarEvents';
 import ErrorBoundary from '@/components/errorBoundary';
 import GoogleCalendar from '@/components/googleCalendar';
+import Location from '@/components/location';
 import ThemeToggler from '@/components/switchTheme';
 import WeatherInDays from '@/components/weatherInDays';
 import WeatherInHours from '@/components/weatherInHours';

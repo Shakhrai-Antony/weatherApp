@@ -5,7 +5,7 @@ import { setCity } from '@/store/mainReducer';
 import { CityWrapper } from '@/styles/styles';
 
 interface Icity {
-  handleChange: () => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
 }
 

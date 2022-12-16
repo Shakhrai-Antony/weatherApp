@@ -30,7 +30,7 @@ const Location = () => {
 
   return (
     <div>
-      <City handleChange={() => handleChangeCity} value={currentCity} />
+      <City handleChange={handleChangeCity} value={currentCity} />
     </div>
   );
 };
