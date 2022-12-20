@@ -1,15 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-interface geoLocation {
-  IPv4: string;
-  city: string;
-  countryCode: string;
-  countryName: string;
-  latitude: number;
-  longitude: number;
-  postal: string;
-  state: string;
-}
+import { geoLocation } from '@/DAL/geoLocation/interface';
 
 const instance = axios.create({
   baseURL: 'https://geolocation-db.com/json/',

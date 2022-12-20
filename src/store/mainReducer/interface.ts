@@ -6,4 +6,8 @@ export interface MainReducer {
   weatherInDays: Array<[]>;
   weatherInHours: Array<[]>;
   weatherSwitcher: boolean;
+  time: string;
+  date: string;
+  weatherInDaysError: string;
+  weatherInHoursError: string;
 }

@@ -1,14 +1,18 @@
 .swiper.swiper__slider {
   max-width: 1000px;
+  width: 800px;
   height: 210px;
-  background-color: rgba(108, 122, 137, 0.6);
-  margin: 100px auto 0;
+  background-color: rgba(108, 122, 137, 0.8);
   border: 1px solid #778899;
   border-radius: 15px;
   text-align: center;
-  width: auto;
-  box-sizing: border-box;
-
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  overflow: hidden;
+.swiper-wrapper div {
+  overflow: hidden;
+}
   .swiper-button-prev,
   .swiper-button-next {
     color: #ffffff;
@@ -24,11 +28,14 @@
     cursor: pointer;
     border-radius: 45px;
     background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    left: 0;
   }
 
   .swiper-button-next {
     cursor: pointer;
     position: absolute;
+    right: 0;
     border-radius: 45px;
     background-color: rgba(0, 0, 0, 0.7);
   }
@@ -77,6 +84,11 @@
 @media (max-width: 860px) {
   .swiper.swiper__slider {
     max-width: 600px;
+  }
+}
+@media (max-width: 700px) {
+  .swiper.swiper__slider {
+    margin: 50px auto 0;
   }
 }
 @media (max-width: 650px) {

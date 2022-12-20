@@ -7,7 +7,7 @@ import { expect, jest, test } from '@jest/globals';
 jest.mock('react-redux');
 
 describe('Location', () => {
-  it('should create location', () => {
+  it('should create Location', () => {
     const payload = 'Minsk';
     const expectation = {
       type: actionTypes.setCurrentCity,

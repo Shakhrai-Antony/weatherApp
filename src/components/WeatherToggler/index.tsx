@@ -16,12 +16,16 @@ const WeatherToggler = () => {
 
   return (
     <WeatherTogglerWrapper>
-      <button type="button" onClick={showWeatherInDays}>
-        weather in days
-      </button>
-      <button type="button" onClick={showWeatherInHours}>
-        weather in hours
-      </button>
+      <div>
+        <button type="button" onClick={showWeatherInDays}>
+          weather in days
+        </button>
+      </div>
+      <div>
+        <button type="button" onClick={showWeatherInHours}>
+          weather in hours
+        </button>
+      </div>
     </WeatherTogglerWrapper>
   );
 };

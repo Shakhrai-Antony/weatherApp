@@ -13,6 +13,7 @@ declare module 'styled-components' {
       lightSlateGray: string;
       lavender: string;
       grayishBlue: string;
+      customBackgroundColor: string;
     };
     sizes: {
       width: number;

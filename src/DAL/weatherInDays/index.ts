@@ -1,21 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 
+import { WeatherInDays } from '@/DAL/weatherInDays/interface';
 import { lastDayDate, todayDate } from '@/constants';
-
-export interface WeatherInDays {
-  address: string;
-  alerts: Array<[]>;
-  currentConditions: object;
-  description: string;
-  latitude: number;
-  longitude: number;
-  queryCost: number;
-  resolvedAddress: string;
-  stations: object;
-  timezone: string;
-  tzoffset: number;
-  days: Array<[]>;
-}
 
 const instance = axios.create({
   baseURL:

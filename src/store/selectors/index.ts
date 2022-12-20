@@ -10,7 +10,9 @@ export const getCurrentUser = (state: AppStateType) => {
 
 export const getCurrentEvents = (state: AppStateType) => {
   return Object.values(state.mainPage.calendarItems).map((item: any) => [
-    item.start.dateTime.substring(11, 19),
+    item.start.dateTime.substring(0, 10) +
+      ' ' +
+      item.start.dateTime.substring(11, 16),
     item.description,
   ]);
 };
@@ -32,8 +34,8 @@ export const getWeatherIconsForSevenDays = (state: AppStateType) => {
 };
 
 export const getTemperatureForSevenDays = (state: AppStateType) => {
-  return Object.values(state.mainPage.weatherInDays).map(
-    (item: any) => item.temp,
+  return Object.values(state.mainPage.weatherInDays).map((item: any) =>
+    Math.round(item.temp),
   );
 };
 
@@ -45,7 +47,7 @@ export const getWeatherHours = (state: AppStateType) => {
 
 export const getWeatherTemperatureInHours = (state: AppStateType) => {
   return Object.values(state.mainPage.weatherInHours)
-    .map((item: any) => item.temp_c)
+    .map((item: any) => Math.round(item.temp_c))
     .filter((item: any, index) => item !== undefined && index !== 24);
 };
 
@@ -58,4 +60,20 @@ export const getIconsForWeatherInHours = (state: AppStateType) => {
 
 export const getWeatherSwitch = (state: AppStateType) => {
   return state.mainPage.weatherSwitcher;
+};
+
+export const getCurrentTime = (state: AppStateType) => {
+  return state.mainPage.time.substring(0, 5);
+};
+
+export const getCurrentDate = (state: AppStateType) => {
+  return state.mainPage.date.substring(0, 26);
+};
+
+export const getWeatherInDaysError = (state: AppStateType) => {
+  return state.mainPage.weatherInDaysError;
+};
+
+export const getWeatherInHoursError = (state: AppStateType) => {
+  return state.mainPage.weatherInHoursError;
 };

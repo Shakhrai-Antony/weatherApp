@@ -2,14 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
-import CalendarEvents from '@/components/calendarEvents';
-import ErrorBoundary from '@/components/errorBoundary';
-import GoogleCalendar from '@/components/googleCalendar';
-import Location from '@/components/location';
-import ThemeToggler from '@/components/switchTheme';
-import WeatherInDays from '@/components/weatherInDays';
-import WeatherInHours from '@/components/weatherInHours';
-import WeatherToggler from '@/components/weatherToggler';
+import CalendarEvents from '@/components/CalendarEvents';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import GoogleCalendar from '@/components/GoogleCalendar';
+import Location from '@/components/Location';
+import WeatherInDays from '@/components/WeatherInDays';
+import WeatherInHours from '@/components/WeatherInHours';
+import WeatherToggler from '@/components/WeatherToggler';
 import { getCurrentTheme, getWeatherSwitch } from '@/store/selectors';
 import { ContentWrapper, HeaderWrapper, ThemeWrapper } from '@/styles/styles';
 import GlobalStyle from '@/theme/globalStyle';
@@ -25,13 +24,12 @@ const App = () => {
         <ThemeWrapper currentTheme={currentTheme}>
           <HeaderWrapper>
             <GoogleCalendar />
-            <ThemeToggler />
+            <WeatherToggler />
           </HeaderWrapper>
           <ContentWrapper>
             <CalendarEvents />
             <Location />
           </ContentWrapper>
-          <WeatherToggler />
           {weatherSwitch ? <WeatherInDays /> : <WeatherInHours />}
         </ThemeWrapper>
       </ErrorBoundary>

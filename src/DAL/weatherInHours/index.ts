@@ -1,10 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-interface WeatherInHours {
-  current: object;
-  forecast: any;
-  location: object;
-}
+import { WeatherInHours } from '@/DAL/weatherInHours/interface';
 
 const instance = axios.create({
   baseURL:

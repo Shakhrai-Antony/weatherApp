@@ -11,6 +11,10 @@ const initialState: MainReducer = {
   weatherInDays: [],
   weatherInHours: [],
   weatherSwitcher: true,
+  time: '',
+  date: '',
+  weatherInDaysError: '',
+  weatherInHoursError: '',
 };
 
 const mainReducer = (state: MainReducer = initialState, action: AnyAction) => {
@@ -56,6 +60,30 @@ const mainReducer = (state: MainReducer = initialState, action: AnyAction) => {
         ...state,
         weatherSwitcher: payload,
       };
+    case actionTypes.setCurrentTime: {
+      return {
+        ...state,
+        time: payload,
+      };
+    }
+    case actionTypes.setCurrentDate: {
+      return {
+        ...state,
+        date: payload,
+      };
+    }
+    case actionTypes.setWeatherInDaysError: {
+      return {
+        ...state,
+        weatherInDaysError: payload,
+      };
+    }
+    case actionTypes.setWeatherInHoursError: {
+      return {
+        ...state,
+        weatherInHoursError: payload,
+      };
+    }
     default:
       return state;
   }
@@ -112,6 +140,34 @@ export const setWeatherInHours = (payload: object) => {
 export const setWeatherSwitch = (payload: boolean) => {
   return {
     type: actionTypes.setWeatherSwitcher,
+    payload,
+  };
+};
+
+export const setTime = (payload: string) => {
+  return {
+    type: actionTypes.setCurrentTime,
+    payload,
+  };
+};
+
+export const setDate = (payload: string) => {
+  return {
+    type: actionTypes.setCurrentDate,
+    payload,
+  };
+};
+
+export const setDaysError = (payload: string) => {
+  return {
+    type: actionTypes.setWeatherInDaysError,
+    payload,
+  };
+};
+
+export const setHoursError = (payload: string) => {
+  return {
+    type: actionTypes.setWeatherInHoursError,
     payload,
   };
 };
