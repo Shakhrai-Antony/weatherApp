@@ -13,7 +13,7 @@ const GoogleCalendar = () => {
   const user = useSelector(getCurrentUser);
   const time = useSelector(getCurrentTime);
   const date = useSelector(getCurrentDate);
-  return (
+  return user ? (
     <LogWrapper>
       <HandleLogin />
       <HandleLogout />
@@ -22,6 +22,10 @@ const GoogleCalendar = () => {
         <p>{time}</p>
         <p>{date}</p>
       </div>
+    </LogWrapper>
+  ) : (
+    <LogWrapper>
+      <HandleLogin />
     </LogWrapper>
   );
 };

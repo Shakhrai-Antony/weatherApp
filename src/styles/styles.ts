@@ -95,7 +95,7 @@ export const LogWrapper = styled.div`
   margin: 40px 0 0 40px;
   box-sizing: border-box;
   div {
-    padding-left: 20px;
+    padding: 0 20px 0 20px;
   }
   p {
     color: ${({ theme }) => theme.colors.defaultWhite};

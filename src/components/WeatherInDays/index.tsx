@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import '../WeatherInHours/swiperSlider.scss';
 import {
-  getCurrentUser,
   getTemperatureForSevenDays,
   getWeatherForSevenDates,
   getWeatherIconsForSevenDays,
@@ -22,7 +21,6 @@ const WeatherInDays = () => {
   const dates = useSelector(getWeatherForSevenDates);
   const icons = useSelector(getWeatherIconsForSevenDays);
   const temperature = useSelector(getTemperatureForSevenDays);
-  const user = useSelector(getCurrentUser);
   const data = [
     { id: 1, date: dates[0], icon: icons[0], temperature: temperature[0] },
     { id: 2, date: dates[1], icon: icons[1], temperature: temperature[1] },
@@ -32,7 +30,7 @@ const WeatherInDays = () => {
     { id: 6, date: dates[5], icon: icons[5], temperature: temperature[5] },
     { id: 7, date: dates[6], icon: icons[6], temperature: temperature[6] },
   ];
-  return user && dates.length > 1 ? (
+  return dates.length > 1 ? (
     <Swiper
       className="swiper__slider"
       modules={[Navigation, Pagination]}
