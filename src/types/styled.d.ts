@@ -14,6 +14,7 @@ declare module 'styled-components' {
       lavender: string;
       grayishBlue: string;
       customBackgroundColor: string;
+      customBackgroundBlack: string;
     };
     sizes: {
       width: number;
