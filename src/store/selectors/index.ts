@@ -67,7 +67,7 @@ export const getCurrentTime = (state: AppStateType) => {
 };
 
 export const getCurrentDate = (state: AppStateType) => {
-  return state.mainPage.date.substring(0, 26);
+  return state.mainPage.date.substring(0, 29);
 };
 
 export const getWeatherInDaysError = (state: AppStateType) => {
