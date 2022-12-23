@@ -84,6 +84,7 @@ const City = ({ handleChange, value }: Icity) => {
         onChange={handleChange}
         onBlur={onBlurSetCity(value)}
         style={{ width: 200, padding: 5 }}
+        id="city"
       >
         <Input placeholder="City" />
       </AutoComplete>
