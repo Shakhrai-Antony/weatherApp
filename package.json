@@ -10,6 +10,7 @@
     "dev": "webpack serve --open",
     "test:cypress": "start-server-and-test start http://localhost:9000 cypress",
     "cypress:": "cypress run",
+    "test:e2e": "node ./cypress/e2e/spec.cy.ts",
     "test:jest": "jest",
     "build": "webpack --mode=development",
     "deploy": "gh-pages -d dist",
