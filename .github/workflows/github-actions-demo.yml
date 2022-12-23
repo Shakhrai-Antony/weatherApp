@@ -14,6 +14,6 @@ jobs:
       - name: predeploy
         run: npm run build
       - name: e2e test
-        run: cypress run
+        run: cypress
       - name: unit test
         run: jest
