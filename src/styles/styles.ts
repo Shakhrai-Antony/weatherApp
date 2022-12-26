@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import searchIcon from '../assets/searchIcon.png';
+import searchIcon from '@/assets/searchIcon.png';
 import { images, imagesForHours, themes } from '@/styles/constants';
 import { themeWrapper } from '@/styles/interface';
 
