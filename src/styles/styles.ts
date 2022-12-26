@@ -1,65 +1,8 @@
 import styled from 'styled-components';
 
-import clear from '../assets/clear.png';
-import cloudy from '../assets/cloudy.png';
-import cloudyTheme from '../assets/cloudyTheme.jpg';
-import drizzle from '../assets/drizzle.png';
-import freezingFog from '../assets/freezing_fog.png';
-import mist from '../assets/mist.png';
-import partlyCloudy from '../assets/partlyCloudy.png';
-import rain from '../assets/rain.png';
-import rainTheme from '../assets/rainTheme.jpg';
 import searchIcon from '../assets/searchIcon.png';
-import snow from '../assets/snow.png';
-import snowTheme from '../assets/snowTheme.jpg';
-import sun from '../assets/sun.png';
-import sunTheme from '../assets/sunTheme.jpg';
-import thunder from '../assets/thunder.png';
-import { Images, ImagesForHours, Themes } from '@/styles/interface';
-
-const images: Images = {
-  rain,
-  snow,
-  sun,
-  cloudy,
-  'clear-day': clear,
-  'partly-cloudy-day': partlyCloudy,
-};
-
-const imagesForHours: ImagesForHours = {
-  'Freezing fog': freezingFog,
-  'Light snow': snow,
-  'Heavy snow': snow,
-  'Moderate snow': snow,
-  Overcast: cloudy,
-  Clear: clear,
-  Mist: mist,
-  'Partly cloudy': partlyCloudy,
-  Sunny: sun,
-  'Light rain shower': rain,
-  'Patchy rain possible': rain,
-  'Thundery outbreaks possible': thunder,
-  'Patchy light drizzle': drizzle,
-  Cloudy: cloudy,
-  'Light freezing rain': drizzle,
-  'Light drizzle': drizzle,
-  'Moderate or heavy freezing rain': drizzle,
-};
-
-const themes: Themes = {
-  sun: sunTheme,
-  snow: snowTheme,
-  rain: rainTheme,
-  'Partly cloudy': cloudyTheme,
-  Cloudy: cloudyTheme,
-  'partly-cloudy-day': cloudyTheme,
-  'clear-day': sunTheme,
-  cloudy: cloudyTheme,
-};
-
-interface themeWrapper {
-  currentTheme: string;
-}
+import { images, imagesForHours, themes } from '@/styles/constants';
+import { themeWrapper } from '@/styles/interface';
 
 export const ThemeWrapper = styled.div<themeWrapper>`
   background-image: ${({ currentTheme }) => `url(${themes[currentTheme]})`};
@@ -78,7 +21,7 @@ export const HeaderWrapper = styled.div`
     flex-direction: column;
   }
   @media (max-width: 550px) {
-    width: 375px;
+    width: ${({ theme }) => (theme.sizes.width = 375)}px;
     margin: 0 auto;
   } ;
 `;
@@ -109,7 +52,7 @@ export const LogWrapper = styled.div`
   }
   @media (max-width: 550px) {
     flex-wrap: wrap;
-    width: 375px;
+    width: ${({ theme }) => (theme.sizes.width = 375)}px;
   } ;
 `;
 

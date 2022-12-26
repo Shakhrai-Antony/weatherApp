@@ -1,4 +1,3 @@
-
 export type Images = {
   [key: string]: string;
 };
@@ -9,3 +8,7 @@ export type ImagesForHours = {
 export type Themes = {
   [key: string]: string;
 };
+
+export interface themeWrapper {
+  currentTheme: string;
+}
