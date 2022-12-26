@@ -92,7 +92,7 @@ export const LogWrapper = styled.div`
   gap: 40px;
   align-items: center;
   width: auto;
-  height: 200px;
+  height: 125px;
   margin: 40px 0 0 40px;
   box-sizing: border-box;
   div {
