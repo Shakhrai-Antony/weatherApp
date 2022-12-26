@@ -4,6 +4,14 @@
   "description": "",
   "main": "index.js",
   "homepage": ".",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts, tsx}": ["eslint --fix", "git add"]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
@@ -86,10 +94,12 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "http-proxy-middleware": "^2.0.6",
+    "husky": "^8.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.3.1",
     "jest-dom": "^4.0.0",
     "jest-transform-stub": "^2.0.0",
+    "lint-staged": "^13.1.0",
     "mini-css-extract-plugin": "^2.7.2",
     "prettier": "^2.8.0",
     "redux-mock-store": "^1.5.4",
