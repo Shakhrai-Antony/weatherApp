@@ -8,23 +8,17 @@ export const icons = [
   { id: 3, value: sun, property: 'sun' },
 ];
 
-const today = new Date();
-export const todayDate =
-  today.getFullYear() +
-  '-' +
-  (today.getMonth() + 1) +
-  '-' +
-  (today.getDate() > 9 ? today.getDate() : '0' + today.getDate());
-
-const lastDay = new Date();
-export const lastDayDate =
-  lastDay.getFullYear() +
-  '-' +
-  (lastDay.getMonth() + 1) +
-  '-' +
-  (lastDay.getDate() + 6 > 9
-    ? lastDay.getDate() + 6
-    : '0' + lastDay.getDate() + 6);
+const currentDate = new Date();
+export const todayDate = new Date(
+  currentDate.setDate(currentDate.getDate() - currentDate.getDay()),
+)
+  .toISOString()
+  .split('T')[0];
+export const lastDayDate = new Date(
+  currentDate.setDate(currentDate.getDate() - currentDate.getDay() + 6),
+)
+  .toISOString()
+  .split('T')[0];
 
 export const uuid = () => {
   const uniqueId =

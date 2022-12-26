@@ -12,8 +12,8 @@ const baseTheme: DefaultTheme = {
     lightSlateGray: '#778899',
     lavender: '#E6E6FA',
     grayishBlue: '#282c34',
-    customBackgroundColor: 'rgba(108, 122, 137, 0.8)',
-    customBackgroundBlack: 'rgba(0, 0, 0, 0.6)',
+    customBackgroundColor: '#6c7a89cc',
+    customBackgroundBlack: '#00000099',
   },
   sizes: {
     width: 42 || 70 || 350 || 400 || 700,

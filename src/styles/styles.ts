@@ -54,6 +54,7 @@ const themes: Themes = {
   Cloudy: cloudyTheme,
   'partly-cloudy-day': cloudyTheme,
   'clear-day': sunTheme,
+  cloudy: cloudyTheme,
 };
 
 interface themeWrapper {
