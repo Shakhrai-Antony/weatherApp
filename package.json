@@ -10,7 +10,11 @@
     }
   },
   "lint-staged": {
-    "*.{ts, tsx}": ["eslint --fix", "git add"]
+    "*.{ts, tsx}": [
+      "eslint --fix",
+      "prettier --parser typescript --write",
+      "git add"
+    ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
