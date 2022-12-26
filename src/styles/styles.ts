@@ -92,7 +92,7 @@ export const LogWrapper = styled.div`
   gap: 40px;
   align-items: center;
   width: auto;
-  height: 125px;
+  height: ${({ theme }) => (theme.sizes.height = 120)}px;
   margin: 40px 0 0 40px;
   box-sizing: border-box;
   div {
@@ -133,7 +133,7 @@ export const ContentWrapper = styled.div`
 `;
 
 export const EventsWrapper = styled.div`
-  width: 800px;
+  width: ${({ theme }) => (theme.sizes.width = 800)}px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,7 +162,7 @@ export const ActionWrapper = styled.span`
   font-weight: bold;
   background-color: ${({ theme }) => theme.colors.customBackgroundColor};
   color: ${({ theme }) => theme.colors.defaultWhite};
-  width: 400px;
+  width: ${({ theme }) => (theme.sizes.width = 400)}px;
   text-align: center;
   word-wrap: break-word;
 `;
@@ -172,7 +172,7 @@ export const CityWrapper = styled.div`
     margin-top: 20px;
   }
   input {
-    width: 150px;
+    width: ${({ theme }) => (theme.sizes.width = 150)}px;
     padding: 10px;
     box-sizing: border-box;
     border: 2px solid;
@@ -198,8 +198,8 @@ export const WeatherIconsWrapper = styled.div`
 
 export const WeatherImg = styled.div<{ icon: string }>`
   background-image: ${({ icon }) => `url(${images[icon]})`};
-  width: 67px;
-  height: 50px;
+  width: ${({ theme }) => (theme.sizes.width = 67)}px;
+  height: ${({ theme }) => (theme.sizes.height = 50)}px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -216,7 +216,7 @@ export const TemperatureWrapper = styled.div`
   font-weight: bold;
   text-align: center;
   div {
-    width: 67px;
+    width: ${({ theme }) => (theme.sizes.width = 67)}px;
   }
 `;
 
@@ -254,13 +254,13 @@ export const HoursWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.customBackgroundBlack};
   border-radius: 10px;
   padding: 10px;
-  width: 100px;
+  width: ${({ theme }) => (theme.sizes.width = 100)}px;
 `;
 export const DatesWrapper = styled(HoursWrapper)``;
 export const HoursIconsWrapper = styled.div<{ icon: string }>`
   background-image: ${({ icon }) => `url(${imagesForHours[icon]})`};
-  width: 100px;
-  height: 80px;
+  width: ${({ theme }) => (theme.sizes.width = 100)}px;
+  height: ${({ theme }) => (theme.sizes.width = 80)}px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -276,7 +276,7 @@ export const TemperatureInHoursWrapper = styled.div`
   padding: 0 10px 0 10px;
   margin: 20px auto 0;
   text-align: center;
-  width: 100px;
+  width: ${({ theme }) => (theme.sizes.width = 100)}px;
 `;
 
 export const ErrorWrapper = styled.h2`

@@ -33,6 +33,8 @@
     "import/order": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "default-param-last": "off",
+    "no-return-assign": "off",
+    "no-param-reassign": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

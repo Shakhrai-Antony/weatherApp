@@ -16,8 +16,8 @@ const baseTheme: DefaultTheme = {
     customBackgroundBlack: '#00000099',
   },
   sizes: {
-    width: 42 || 70 || 350 || 400 || 700,
-    height: 42 || 120,
+    width: 42 || 67 || 70 || 100 || 150 || 350 || 400 || 700 || 800,
+    height: 42 || 50 || 80 || 120,
   },
 };
 
