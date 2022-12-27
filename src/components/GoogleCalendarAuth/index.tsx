@@ -8,13 +8,6 @@ import { useDispatch } from 'react-redux';
 
 import { setCurrentUser, unSetCurrentUser } from '@/store/mainReducer';
 
-export const clientId =
-  '1028937362468-uaploh0b1mhhhcb2dknqjeolp3cvhhme.apps.googleusercontent.com';
-
-export const calendarId = 'manager.laune@gmail.com';
-
-export const API_KEY = 'AIzaSyDRtNos1LeZDRmieJyYYgzS96x-VgZ54to';
-
 export const HandleLogin = () => {
   const dispatch = useDispatch();
 
@@ -25,8 +18,10 @@ export const HandleLogin = () => {
   return (
     <div>
       <GoogleLogin
-        clientId={clientId}
-        scope="https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/calendar.events.readonly"
+        clientId={process.env.CLIENT_ID}
+        scope="https://www.googleapis.com/auth/userinfo.email
+        https://www.googleapis.com/auth/userinfo.profile
+        https://www.googleapis.com/auth/calendar.events.readonly"
         buttonText="Login"
         onSuccess={onSuccess}
         cookiePolicy="single_host_origin"
@@ -46,7 +41,7 @@ export const HandleLogout = () => {
   return (
     <div>
       <GoogleLogout
-        clientId={clientId}
+        clientId={process.env.CLIENT_ID}
         buttonText="Logout"
         onLogoutSuccess={onSuccess}
       />

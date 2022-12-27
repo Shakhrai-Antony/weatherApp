@@ -17,7 +17,6 @@ import baseTheme from '@/theme/theme';
 const App = () => {
   const weatherSwitch = useSelector(getWeatherSwitch);
   const currentTheme = useSelector(getCurrentTheme);
-
   return (
     <ThemeProvider theme={baseTheme}>
       <ErrorBoundary>

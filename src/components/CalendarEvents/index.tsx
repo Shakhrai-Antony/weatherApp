@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { GapiResponse } from '@/components/CalendarEvents/interface';
-import { API_KEY, calendarId } from '@/components/GoogleCalendarAuth';
 import { uuid } from '@/constants';
 import { setCalendarActions } from '@/store/mainReducer';
 import { getCurrentEvents, getCurrentUser } from '@/store/selectors';
@@ -33,7 +32,7 @@ const CalendarEvents = () => {
       gapi.load('client', initiate);
     }
     if (user) {
-      getEvents(calendarId, API_KEY);
+      getEvents(process.env.CALENDAR_ID, process.env.API_KEY);
     }
   }, [user]);
 

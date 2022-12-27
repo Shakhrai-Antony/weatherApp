@@ -6,7 +6,6 @@ import getCurrentGeoLocation from '@/DAL/geoLocation';
 import City from '@/components/LocationForms';
 import { setCity, setDate, setTime } from '@/store/mainReducer';
 import {
-  getCurrentUser,
   getUserCity,
   getWeatherInDaysError,
   getWeatherInHoursError,
@@ -15,7 +14,6 @@ import { ErrorWrapper } from '@/styles/styles';
 
 const Location = () => {
   const dispatch = useDispatch();
-  const user = useSelector(getCurrentUser);
   const city = useSelector(getUserCity);
   const weatherByDaysError = useSelector(getWeatherInDaysError);
   const weatherByHoursError = useSelector(getWeatherInHoursError);
@@ -31,10 +29,8 @@ const Location = () => {
       dispatch(setTime(currentDate.time));
       dispatch(setDate(currentDate.date_time_txt));
     }
-    if (user) {
-      loadLocation();
-    }
-  }, [user]);
+    loadLocation();
+  }, [city]);
 
   const handleChangeCity = (e: string) => {
     setCurrentCity(e);

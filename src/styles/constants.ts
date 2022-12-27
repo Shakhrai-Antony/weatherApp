@@ -41,6 +41,8 @@ export const imagesForHours: ImagesForHours = {
   'Light freezing rain': drizzle,
   'Light drizzle': drizzle,
   'Moderate or heavy freezing rain': drizzle,
+  'Light sleet': cloudy,
+  Fog: mist,
 };
 
 export const themes: Themes = {
@@ -52,4 +54,21 @@ export const themes: Themes = {
   'partly-cloudy-day': cloudyTheme,
   'clear-day': sunTheme,
   cloudy: cloudyTheme,
+  'Freezing fog': rainTheme,
+  'Light snow': snowTheme,
+  'Heavy snow': snowTheme,
+  'Moderate snow': snowTheme,
+  Overcast: cloudyTheme,
+  Clear: sunTheme,
+  Mist: cloudyTheme,
+  Sunny: sunTheme,
+  'Light rain shower': rainTheme,
+  'Patchy rain possible': rainTheme,
+  'Thundery outbreaks possible': rainTheme,
+  'Patchy light drizzle': rainTheme,
+  'Light freezing rain': rainTheme,
+  'Light drizzle': rainTheme,
+  'Moderate or heavy freezing rain': rainTheme,
+  'Light sleet': cloudyTheme,
+  Fog: cloudyTheme,
 };

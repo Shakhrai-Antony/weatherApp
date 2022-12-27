@@ -2,6 +2,7 @@ import { call, put, select, spawn, takeEvery } from 'redux-saga/effects';
 
 import getWeatherInDays from '@/DAL/weatherInDays';
 import getWeatherInHours from '@/DAL/weatherInHours';
+import { currentHour } from '@/constants';
 import {
   setCurrentTheme,
   setDaysError,
@@ -27,6 +28,11 @@ async function getCurrentWeatherInHours(city: string) {
   return request.forecast.forecastday[0].hour;
 }
 
+async function getThemeForCurrentHour(city: string) {
+  const request = await getWeatherInHours.currentWeather(city);
+  return request.forecast.forecastday[0].hour[currentHour].condition.text;
+}
+
 export function* loadWeatherInDays(): Generator {
   try {
     const city: ReturnType<typeof getUserCity> = yield select(getUserCity);
@@ -46,7 +52,9 @@ export function* loadWeatherInHours(): Generator {
   try {
     const city: ReturnType<typeof getUserCity> = yield select(getUserCity);
     const weather: any = yield call(getCurrentWeatherInHours, city);
+    const themeForHour: any = yield call(getThemeForCurrentHour, city);
     yield put(setWeatherSwitch(false));
+    yield put(setCurrentTheme(themeForHour));
     yield put(setWeatherInHours(weather));
     yield put(setHoursError(''));
     yield put(setDaysError(''));

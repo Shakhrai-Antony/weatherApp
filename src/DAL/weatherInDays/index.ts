@@ -12,7 +12,7 @@ const getWeatherInDays = {
   currentWeather(city: string) {
     return instance
       .get(
-        `${city}/${todayDate}/${lastDayDate}?unitGroup=metric&key=H2AP2EYJXWK4SHTHCFR9H42BB&contentType=json`,
+        `${city}/${todayDate}/${lastDayDate}?unitGroup=metric&key=${process.env.WEATHER_IN_DAYS_KEY}&contentType=json`,
       )
       .then((response: AxiosResponse<WeatherInDays>) => response.data);
   },

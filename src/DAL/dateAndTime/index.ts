@@ -9,7 +9,7 @@ const instance = axios.create({
 const getCurrentDateAndTime = {
   getDate(city: string) {
     return instance
-      .get(`${city}&token=aihUjYafZzFMYbqxHmJH`)
+      .get(`${city}&token=${process.env.TIMEZONE_TOKEN}`)
       .then(
         (response: AxiosResponse<IDateTime>) => response.data.data.datetime,
       );

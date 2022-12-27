@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios';
 import { geoLocation } from '@/DAL/geoLocation/interface';
 
 const instance = axios.create({
-  baseURL: 'https://geolocation-db.com/json/',
+  baseURL: 'http://ip-api.com/json/',
 });
 
 const getCurrentGeoLocation = {
