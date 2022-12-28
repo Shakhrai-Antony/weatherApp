@@ -1,6 +1,6 @@
-import rain from '../assets/rain.png';
-import snow from '../assets/snow.png';
-import sun from '../assets/sun.png';
+import rain from '@/assets/rain.png';
+import snow from '@/assets/snow.png';
+import sun from '@/assets/sun.png';
 
 export const icons = [
   { id: 1, value: snow, property: 'snow' },

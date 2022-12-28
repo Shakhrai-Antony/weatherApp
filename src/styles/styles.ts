@@ -28,11 +28,11 @@ export const HeaderWrapper = styled.div`
 
 export const LogWrapper = styled.div`
   border: 1px solid transparent;
-  border-radius: 15px;
+  border-radius: ${({ theme }) => (theme.sizes.borderRadius = 15)}px;
   background-color: ${({ theme }) => theme.colors.customBackgroundColor};
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: ${({ theme }) => (theme.sizes.gap = 40)}px;
   align-items: center;
   width: auto;
   height: ${({ theme }) => (theme.sizes.height = 120)}px;
@@ -44,8 +44,8 @@ export const LogWrapper = styled.div`
   p {
     color: ${({ theme }) => theme.colors.defaultWhite};
     font-weight: bold;
-    font-size: 20px;
-    padding-right: 20px;
+    font-size: ${({ theme }) => (theme.sizes.fontSize = 20)}px;
+    padding-right: ${({ theme }) => theme.spaces[3]}px;
   }
   @media (max-width: 1160px) {
     margin: 40px 0 0 0;
@@ -55,6 +55,17 @@ export const LogWrapper = styled.div`
     width: ${({ theme }) => (theme.sizes.width = 375)}px;
   } ;
 `;
+
+export const UserWrapper = styled.p`
+  color: ${({ theme }) => theme.colors.defaultWhite};
+  font-weight: bold;
+  font-size: ${({ theme }) => (theme.sizes.fontSize = 20)}px;
+  padding-right: ${({ theme }) => theme.spaces[3]}px;
+`;
+
+export const UserDateWrapper = styled(UserWrapper)``;
+
+export const UserTimeWrapper = styled(UserWrapper)``;
 
 export const ContentWrapper = styled.div`
   width: 100%;
@@ -83,25 +94,25 @@ export const EventsWrapper = styled.div`
   margin-top: 10px;
   @media (max-width: 1030px) {
     justify-content: start;
-    gap: 20px;
+    gap: ${({ theme }) => (theme.sizes.gap = 20)}px;
     max-width: 500px;
   }
   @media (max-width: 650px) {
-    width: 350px;
+    width: ${({ theme }) => (theme.sizes.width = 350)}px;
   } ;
 `;
 export const TimeWrapper = styled.span`
   background-color: ${({ theme }) => theme.colors.customBackgroundColor};
   color: ${({ theme }) => theme.colors.defaultWhite};
-  padding: 20px;
-  border-radius: 10px;
-  font-size: 20px;
+  padding: ${({ theme }) => theme.spaces[3]}px;
+  border-radius: ${({ theme }) => (theme.sizes.borderRadius = 10)}px;
+  font-size: ${({ theme }) => (theme.sizes.fontSize = 20)}px;
   font-weight: bold;
 `;
 export const ActionWrapper = styled.span`
-  padding: 20px;
-  border-radius: 10px;
-  font-size: 25px;
+  padding: ${({ theme }) => theme.spaces[3]}px;
+  border-radius: ${({ theme }) => (theme.sizes.borderRadius = 10)}px;
+  font-size: ${({ theme }) => (theme.sizes.fontSize = 25)}px;
   font-weight: bold;
   background-color: ${({ theme }) => theme.colors.customBackgroundColor};
   color: ${({ theme }) => theme.colors.defaultWhite};
@@ -112,17 +123,17 @@ export const ActionWrapper = styled.span`
 
 export const CityWrapper = styled.div`
   @media (max-width: 690px) {
-    margin-top: 20px;
+    margin-top: ${({ theme }) => theme.spaces[3]}px;
   }
   input {
     width: ${({ theme }) => (theme.sizes.width = 150)}px;
-    padding: 10px;
+    padding: ${({ theme }) => theme.spaces[1]}px;
     box-sizing: border-box;
     border: 2px solid;
     border-color: ${({ theme }) => theme.colors.lightSlateGray};
-    border-radius: 6px;
+    border-radius: ${({ theme }) => (theme.sizes.borderRadius = 6)}px;
     outline-color: ${({ theme }) => theme.colors.sienna};
-    font-size: 20px;
+    font-size: ${({ theme }) => (theme.sizes.fontSize = 20)}px;
     background-image: url(${searchIcon});
     background-repeat: no-repeat;
     background-size: 20px 20px;
@@ -136,7 +147,7 @@ export const WeatherIconsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.colors.defaultWhite};
-  margin-top: 35px;
+  margin-top: ${({ theme }) => theme.spaces[5]}px;
 `;
 
 export const WeatherImg = styled.div<{ icon: string }>`
@@ -154,8 +165,8 @@ export const TemperatureWrapper = styled.div`
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.colors.defaultWhite};
-  margin-top: 35px;
-  font-size: 20px;
+  margin-top: ${({ theme }) => theme.spaces[5]}px;
+  font-size: ${({ theme }) => (theme.sizes.fontSize = 20)}px;
   font-weight: bold;
   text-align: center;
   div {
@@ -168,25 +179,25 @@ export const WeatherTogglerWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
-  margin-top: 50px;
+  gap: ${({ theme }) => (theme.sizes.gap = 40)}px;
+  margin-top: ${({ theme }) => theme.spaces[6]}px;
   button {
-    padding: 15px;
+    padding: ${({ theme }) => theme.spaces[2]}px;
     border: transparent;
-    border-radius: 15px;
+    border-radius: ${({ theme }) => (theme.sizes.borderRadius = 15)}px;
     background-color: ${({ theme }) => theme.colors.customBackgroundColor};;
     cursor: pointer;
     color: ${({ theme }) => theme.colors.defaultWhite};
-    font-size: 20px;
+    font-size: ${({ theme }) => (theme.sizes.fontSize = 20)}px;
     font-weight: bold;
   }
   button:hover {
     transform: scale(1.1);
   }
   @media (max-width: 550px) {
-    gap 20px;
+    gap ${({ theme }) => (theme.sizes.gap = 20)}px;
     button {
-      font-size: 15px;
+      font-size: ${({ theme }) => (theme.sizes.fontSize = 15)}px;
     }
   }
 `;
@@ -195,8 +206,8 @@ export const HoursWrapper = styled.div`
   margin: 10px auto;
   color: ${({ theme }) => theme.colors.defaultWhite};
   background-color: ${({ theme }) => theme.colors.customBackgroundBlack};
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: ${({ theme }) => (theme.sizes.borderRadius = 10)}px;
+  padding: ${({ theme }) => theme.spaces[1]}px;
   width: ${({ theme }) => (theme.sizes.width = 100)}px;
 `;
 export const DatesWrapper = styled(HoursWrapper)``;
@@ -213,8 +224,7 @@ export const HoursIconsWrapper = styled.div<{ icon: string }>`
 
 export const TemperatureInHoursWrapper = styled.div`
   color: ${({ theme }) => theme.colors.defaultWhite};
-  margin-top: 30px;
-  font-size: 20px;
+  font-size: ${({ theme }) => (theme.sizes.fontSize = 20)}px;
   font-weight: bold;
   padding: 0 10px 0 10px;
   margin: 20px auto 0;

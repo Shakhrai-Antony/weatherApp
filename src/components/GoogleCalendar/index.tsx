@@ -7,7 +7,12 @@ import {
   getCurrentTime,
   getCurrentUser,
 } from '@/store/selectors';
-import { LogWrapper } from '@/styles/styles';
+import {
+  LogWrapper,
+  UserDateWrapper,
+  UserTimeWrapper,
+  UserWrapper,
+} from '@/styles/styles';
 
 const GoogleCalendar = () => {
   const user = useSelector(getCurrentUser);
@@ -16,10 +21,10 @@ const GoogleCalendar = () => {
   return user ? (
     <LogWrapper>
       <HandleLogout />
-      <p>{user}</p>
+      <UserWrapper>{user}</UserWrapper>
       <div>
-        <p>{time}</p>
-        <p>{date}</p>
+        <UserDateWrapper>{time}</UserDateWrapper>
+        <UserTimeWrapper>{date}</UserTimeWrapper>
       </div>
     </LogWrapper>
   ) : (

@@ -22,7 +22,7 @@ const CalendarEvents = () => {
           })
           .then(() => {
             return gapi.client.request({
-              path: `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events`,
+              path: `${process.env.GOOGLE_CALENDAR_PATH_API}${calendarId}/events`,
             });
           })
           .then((response: GapiResponse) => {
@@ -38,7 +38,7 @@ const CalendarEvents = () => {
 
   return (
     <div>
-      {events.map((item: Array<[]>) => (
+      {events.map((item) => (
         <EventsWrapper key={uuid()}>
           <TimeWrapper>{item[0]}</TimeWrapper>
           <ActionWrapper>{item[1]}</ActionWrapper>

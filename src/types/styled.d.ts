@@ -19,6 +19,10 @@ declare module 'styled-components' {
     sizes: {
       width: number;
       height: number;
+      gap: number;
+      borderRadius: number;
+      fontSize: number;
     };
+    spaces: Array<number>;
   }
 }

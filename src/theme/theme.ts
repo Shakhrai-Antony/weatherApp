@@ -18,7 +18,11 @@ const baseTheme: DefaultTheme = {
   sizes: {
     width: 42 || 67 || 70 || 100 || 150 || 350 || 375 || 400 || 700 || 800,
     height: 42 || 50 || 80 || 120,
+    gap: 20 || 40,
+    borderRadius: 6 || 10 || 15,
+    fontSize: 15 || 20 || 25,
   },
+  spaces: [0, 10, 15, 20, 30, 35, 50],
 };
 
 export default baseTheme;
