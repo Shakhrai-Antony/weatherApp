@@ -1,17 +1,18 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import actionTypes from '@/store/constants';
 import { WeatherTogglerWrapper } from '@/styles/styles';
 
 const WeatherToggler = () => {
   const dispatch = useDispatch();
 
   const showWeatherInDays = () => {
-    dispatch({ type: 'LOAD_WEATHER_IN_DAYS' });
+    dispatch({ type: actionTypes.loadWeatherInDays });
   };
 
   const showWeatherInHours = () => {
-    dispatch({ type: 'LOAD_WEATHER_IN_HOURS' });
+    dispatch({ type: actionTypes.loadWeatherInHours });
   };
 
   return (

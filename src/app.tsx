@@ -6,16 +6,14 @@ import CalendarEvents from '@/components/CalendarEvents';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import GoogleCalendar from '@/components/GoogleCalendar';
 import Location from '@/components/Location';
-import WeatherInDays from '@/components/WeatherInDays';
-import WeatherInHours from '@/components/WeatherInHours';
+import WeatherSwitcher from '@/components/WeatherSwitcher';
 import WeatherToggler from '@/components/WeatherToggler';
-import { getCurrentTheme, getWeatherSwitch } from '@/store/selectors';
+import { getCurrentTheme } from '@/store/selectors';
 import { ContentWrapper, HeaderWrapper, ThemeWrapper } from '@/styles/styles';
 import GlobalStyle from '@/theme/globalStyle';
 import baseTheme from '@/theme/theme';
 
 const App = () => {
-  const weatherSwitch = useSelector(getWeatherSwitch);
   const currentTheme = useSelector(getCurrentTheme);
   return (
     <ThemeProvider theme={baseTheme}>
@@ -29,7 +27,7 @@ const App = () => {
             <CalendarEvents />
             <Location />
           </ContentWrapper>
-          {weatherSwitch ? <WeatherInDays /> : <WeatherInHours />}
+          <WeatherSwitcher />
         </ThemeWrapper>
       </ErrorBoundary>
       <GlobalStyle />

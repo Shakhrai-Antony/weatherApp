@@ -10,4 +10,5 @@ export interface MainReducer {
   date: string;
   weatherInDaysError: string;
   weatherInHoursError: string;
+  isFetching: boolean;
 }

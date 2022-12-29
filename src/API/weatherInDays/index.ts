@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { WeatherInDays } from '@/DAL/weatherInDays/interface';
+import { WeatherInDays } from '@/API/weatherInDays/interface';
 import { lastDayDate, todayDate } from '@/constants';
 
 const instance = axios.create({

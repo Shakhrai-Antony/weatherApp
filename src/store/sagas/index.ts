@@ -1,12 +1,14 @@
-import { call, put, select, spawn, takeEvery } from 'redux-saga/effects';
+import { call, fork, put, select, takeEvery } from 'redux-saga/effects';
 
-import getWeatherInDays from '@/DAL/weatherInDays';
-import getWeatherInHours from '@/DAL/weatherInHours';
+import getWeatherInDays from '@/API/weatherInDays';
+import getWeatherInHours from '@/API/weatherInHours';
 import { currentHour } from '@/constants';
+import actionTypes from '@/store/constants';
 import {
   setCurrentTheme,
   setDaysError,
   setHoursError,
+  setPreloader,
   setWeatherInDays,
   setWeatherInHours,
   setWeatherSwitch,
@@ -35,6 +37,7 @@ async function getThemeForCurrentHour(city: string) {
 
 export function* loadWeatherInDays(): Generator {
   try {
+    yield put(setPreloader(true));
     const city: ReturnType<typeof getUserCity> = yield select(getUserCity);
     const weather: any = yield call(getCurrentWeatherInDays, city);
     const theme: any = yield call(getCurrentTheme, city);
@@ -43,6 +46,7 @@ export function* loadWeatherInDays(): Generator {
     yield put(setWeatherInDays(weather));
     yield put(setDaysError(''));
     yield put(setHoursError(''));
+    yield put(setPreloader(false));
   } catch {
     yield put(setDaysError('Error in the name of the city'));
   }
@@ -50,6 +54,7 @@ export function* loadWeatherInDays(): Generator {
 
 export function* loadWeatherInHours(): Generator {
   try {
+    yield put(setPreloader(true));
     const city: ReturnType<typeof getUserCity> = yield select(getUserCity);
     const weather: any = yield call(getCurrentWeatherInHours, city);
     const themeForHour: any = yield call(getThemeForCurrentHour, city);
@@ -58,22 +63,23 @@ export function* loadWeatherInHours(): Generator {
     yield put(setWeatherInHours(weather));
     yield put(setHoursError(''));
     yield put(setDaysError(''));
+    yield put(setPreloader(false));
   } catch {
     yield put(setHoursError('Error in the name of the city'));
   }
 }
 
 export function* workerSagaForWeatherInDays() {
-  yield spawn(loadWeatherInDays);
+  yield fork(loadWeatherInDays);
 }
 
 export function* workerSagaForWeatherInHours() {
-  yield spawn(loadWeatherInHours);
+  yield fork(loadWeatherInHours);
 }
 
 export function* watchLoadDataSaga() {
-  yield takeEvery('LOAD_WEATHER_IN_DAYS', workerSagaForWeatherInDays);
-  yield takeEvery('LOAD_WEATHER_IN_HOURS', workerSagaForWeatherInHours);
+  yield takeEvery(actionTypes.loadWeatherInDays, workerSagaForWeatherInDays);
+  yield takeEvery(actionTypes.loadWeatherInHours, workerSagaForWeatherInHours);
 }
 
 export default function* rootSaga() {

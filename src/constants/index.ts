@@ -1,13 +1,3 @@
-import rain from '@/assets/rain.png';
-import snow from '@/assets/snow.png';
-import sun from '@/assets/sun.png';
-
-export const icons = [
-  { id: 1, value: snow, property: 'snow' },
-  { id: 2, value: rain, property: 'rain' },
-  { id: 3, value: sun, property: 'sun' },
-];
-
 const currentDate = new Date();
 export const todayDate = new Date(
   currentDate.setDate(currentDate.getDate() - currentDate.getDay()),

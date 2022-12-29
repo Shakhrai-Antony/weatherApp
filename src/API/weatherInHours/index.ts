@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { WeatherInHours } from '@/DAL/weatherInHours/interface';
+import { WeatherInHours } from '@/API/weatherInHours/interface';
 
 const instance = axios.create({
   baseURL: `https://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_IN_HOURS_KEY}&q=`,

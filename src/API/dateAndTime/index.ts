@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { IDateTime } from '@/DAL/dateAndTime/interface';
+import { IDateTime } from '@/API/dateAndTime/interface';
 
 const instance = axios.create({
   baseURL: 'https://timezoneapi.io/api/timezone/?Europe/',

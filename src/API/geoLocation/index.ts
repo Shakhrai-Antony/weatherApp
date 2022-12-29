@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { geoLocation } from '@/DAL/geoLocation/interface';
+import { geoLocation } from '@/API/geoLocation/interface';
 
 const instance = axios.create({
   baseURL: 'http://ip-api.com/json/',

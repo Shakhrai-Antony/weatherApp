@@ -77,3 +77,7 @@ export const getWeatherInDaysError = (state: AppStateType) => {
 export const getWeatherInHoursError = (state: AppStateType) => {
   return state.mainPage.weatherInHoursError;
 };
+
+export const getPreloader = (state: AppStateType) => {
+  return state.mainPage.isFetching;
+};

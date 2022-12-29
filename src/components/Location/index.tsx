@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import getCurrentDateAndTime from '@/DAL/dateAndTime';
-import getCurrentGeoLocation from '@/DAL/geoLocation';
+import getCurrentDateAndTime from '@/API/dateAndTime';
+import getCurrentGeoLocation from '@/API/geoLocation';
 import City from '@/components/LocationForms';
 import { setCity, setDate, setTime } from '@/store/mainReducer';
 import {
@@ -30,7 +30,7 @@ const Location = () => {
       dispatch(setDate(currentDate.date_time_txt));
     }
     loadLocation();
-  }, [city]);
+  }, []);
 
   const handleChangeCity = (e: string) => {
     setCurrentCity(e);

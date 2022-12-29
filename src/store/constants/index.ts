@@ -11,5 +11,8 @@ const actionTypes = {
   setCurrentDate: 'SET_CURRENT_DATE',
   setWeatherInDaysError: 'SET_WEATHER_IN_DAYS_ERROR',
   setWeatherInHoursError: 'SET_WEATHER_IN_HOURS_ERROR',
+  loadWeatherInDays: 'LOAD_WEATHER_IN_DAYS',
+  loadWeatherInHours: 'LOAD_WEATHER_IN_HOURS',
+  isFetching: 'IS_FETCHING',
 };
 export default actionTypes;

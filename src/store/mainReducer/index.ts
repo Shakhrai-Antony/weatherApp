@@ -15,6 +15,7 @@ const initialState: MainReducer = {
   date: '',
   weatherInDaysError: '',
   weatherInHoursError: '',
+  isFetching: false,
 };
 
 const mainReducer = (state: MainReducer = initialState, action: AnyAction) => {
@@ -82,6 +83,12 @@ const mainReducer = (state: MainReducer = initialState, action: AnyAction) => {
       return {
         ...state,
         weatherInHoursError: payload,
+      };
+    }
+    case actionTypes.isFetching: {
+      return {
+        ...state,
+        isFetching: payload,
       };
     }
     default:
@@ -168,6 +175,13 @@ export const setDaysError = (payload: string) => {
 export const setHoursError = (payload: string) => {
   return {
     type: actionTypes.setWeatherInHoursError,
+    payload,
+  };
+};
+
+export const setPreloader = (payload: boolean) => {
+  return {
+    type: actionTypes.isFetching,
     payload,
   };
 };
