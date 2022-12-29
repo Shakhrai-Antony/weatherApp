@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import searchIcon from '@/assets/searchIcon.png';
 import { images, imagesForHours, themes } from '@/styles/constants';
 import { themeWrapper } from '@/styles/interface';
+import baseTheme from '@/theme/theme';
 
 export const ThemeWrapper = styled.div<themeWrapper>`
   background-image: ${({ currentTheme }) => `url(${themes[currentTheme]})`};
@@ -36,10 +37,12 @@ export const LogWrapper = styled.div`
   align-items: center;
   width: auto;
   height: ${({ theme }) => (theme.sizes.height = 120)}px;
-  margin: 40px 0 0 40px;
+  margin: ${baseTheme.spaces[6]}px ${baseTheme.spaces[0]}px
+    ${baseTheme.spaces[0]}px ${baseTheme.spaces[6]}px;
   box-sizing: border-box;
   div {
-    padding: 0 20px 0 20px;
+    padding: ${baseTheme.spaces[0]}px ${baseTheme.spaces[3]}px
+      ${baseTheme.spaces[0]}px ${baseTheme.spaces[3]}px;
   }
   p {
     color: ${({ theme }) => theme.colors.defaultWhite};
@@ -48,7 +51,9 @@ export const LogWrapper = styled.div`
     padding-right: ${({ theme }) => theme.spaces[3]}px;
   }
   @media (max-width: 1160px) {
-    margin: 40px 0 0 0;
+    margin: ${baseTheme.spaces[6]}px ${baseTheme.spaces[0]}px
+      ${baseTheme.spaces[0]}px ${baseTheme.spaces[0]}px;
+    gap: ${({ theme }) => (theme.sizes.gap = 20)}px;
   }
   @media (max-width: 550px) {
     flex-wrap: wrap;
@@ -69,19 +74,24 @@ export const UserTimeWrapper = styled(UserWrapper)``;
 
 export const ContentWrapper = styled.div`
   width: 100%;
-  margin: 80px 0 0 0;
-  padding: 0 35px 0 35px;
+  margin: ${baseTheme.spaces[9]}px ${baseTheme.spaces[0]}px
+    ${baseTheme.spaces[0]}px ${baseTheme.spaces[0]}px;
+  padding: ${baseTheme.spaces[0]}px ${baseTheme.spaces[6]}px
+    ${baseTheme.spaces[0]}px ${baseTheme.spaces[6]}px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media (max-width: 830px) {
-    padding: 0 5px 0 5px;
+    padding: ${baseTheme.spaces[0]}px ${baseTheme.spaces[1]}px
+      ${baseTheme.spaces[0]}px ${baseTheme.spaces[1]}px;
   }
   @media (max-width: 690px) {
     flex-direction: column;
-    margin: 40px 0 0 0;
+    margin: ${baseTheme.spaces[7]}px ${baseTheme.spaces[0]}px
+      ${baseTheme.spaces[0]}px ${baseTheme.spaces[0]}px;
     justify-content: center;
-    padding: 0 10px 0 10px;
+    padding: ${baseTheme.spaces[0]}px ${baseTheme.spaces[2]}px
+      ${baseTheme.spaces[0]}px ${baseTheme.spaces[2]}px;
     align-items: start;
   }
 `;
@@ -91,7 +101,7 @@ export const EventsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: ${baseTheme.spaces[2]}px;
   @media (max-width: 1030px) {
     justify-content: start;
     gap: ${({ theme }) => (theme.sizes.gap = 20)}px;
@@ -139,7 +149,7 @@ export const CityWrapper = styled.div`
     background-size: 20px 20px;
     background-position: right 45px center;
   }
-  margin-bottom: 10px;
+  margin-bottom: ${({ theme }) => theme.spaces[2]}px;
 `;
 
 export const WeatherIconsWrapper = styled.div`
@@ -226,7 +236,8 @@ export const TemperatureInHoursWrapper = styled.div`
   color: ${({ theme }) => theme.colors.defaultWhite};
   font-size: ${({ theme }) => (theme.sizes.fontSize = 20)}px;
   font-weight: bold;
-  padding: 0 10px 0 10px;
+  padding: ${baseTheme.spaces[0]}px ${baseTheme.spaces[2]}px
+    ${baseTheme.spaces[0]}px ${baseTheme.spaces[2]}px;
   margin: 20px auto 0;
   text-align: center;
   width: ${({ theme }) => (theme.sizes.width = 100)}px;

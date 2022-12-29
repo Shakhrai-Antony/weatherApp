@@ -22,7 +22,7 @@ const baseTheme: DefaultTheme = {
     borderRadius: 6 || 10 || 15,
     fontSize: 15 || 20 || 25,
   },
-  spaces: [0, 10, 15, 20, 30, 35, 50],
+  spaces: [0, 5, 10, 15, 20, 30, 35, 40, 50, 80],
 };
 
 export default baseTheme;
