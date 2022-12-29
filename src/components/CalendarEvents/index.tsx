@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GapiResponse } from '@/components/CalendarEvents/interface';
 import { uuid } from '@/constants';
 import { setCalendarActions } from '@/store/mainReducer';
-import { getCurrentEvents, getCurrentUser } from '@/store/selectors';
+import { currentEvents, getCurrentUser } from '@/store/selectors';
 import { ActionWrapper, EventsWrapper, TimeWrapper } from '@/styles/styles';
 
 const CalendarEvents = () => {
-  const events = useSelector(getCurrentEvents);
+  const events = useSelector(currentEvents);
   const user = useSelector(getCurrentUser);
   const dispatch = useDispatch();
 

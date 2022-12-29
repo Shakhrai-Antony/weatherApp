@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 import { AppStateType } from '@/store';
 
 export const getCurrentTheme = (state: AppStateType) => {
@@ -8,67 +10,105 @@ export const getCurrentUser = (state: AppStateType) => {
   return state.mainPage.currentUser;
 };
 
-export const getCurrentEvents = (state: AppStateType) => {
-  return Object.values(state.mainPage.calendarItems).map((item: any) => [
+const getCurrentEvents = (state: AppStateType) => {
+  return Object.values(state.mainPage.calendarItems);
+};
+
+export const currentEvents = createSelector(getCurrentEvents, (calendarItems) =>
+  calendarItems.map((item: any) => [
     item.start.dateTime.substring(0, 10) +
       ' ' +
       item.start.dateTime.substring(11, 16),
     item.description,
-  ]);
-};
+  ]),
+);
 
 export const getUserCity = (state: AppStateType) => {
   return state.mainPage.city;
 };
 
-export const getWeatherForSevenDates = (state: AppStateType) => {
-  return Object.values(state.mainPage.weatherInDays).map((item: any) =>
-    item.datetime.substring(5, 10),
-  );
+const getWeatherForSevenDates = (state: AppStateType) => {
+  return Object.values(state.mainPage.weatherInDays);
 };
 
-export const getWeatherIconsForSevenDays = (state: AppStateType) => {
-  return Object.values(state.mainPage.weatherInDays).map(
-    (item: any) => item.icon,
-  );
+export const weatherForSevenDates = createSelector(
+  getWeatherForSevenDates,
+  (weatherInDays) =>
+    weatherInDays.map((item: any) => item.datetime.substring(5, 10)),
+);
+
+const getWeatherIconsForSevenDays = (state: AppStateType) => {
+  return Object.values(state.mainPage.weatherInDays);
 };
 
-export const getTemperatureForSevenDays = (state: AppStateType) => {
-  return Object.values(state.mainPage.weatherInDays).map((item: any) =>
-    Math.round(item.temp),
-  );
+export const weatherIconsForSevenDates = createSelector(
+  getWeatherIconsForSevenDays,
+  (weatherInDays) => weatherInDays.map((item: any) => item.icon),
+);
+
+const getTemperatureForSevenDays = (state: AppStateType) => {
+  return Object.values(state.mainPage.weatherInDays);
 };
 
-export const getWeatherHours = (state: AppStateType) => {
-  return Object.values(state.mainPage.weatherInHours)
+export const temperatureForSevenDays = createSelector(
+  getTemperatureForSevenDays,
+  (weatherInDays) => weatherInDays.map((item: any) => Math.round(item.temp)),
+);
+
+const getWeatherHours = (state: AppStateType) => {
+  return Object.values(state.mainPage.weatherInHours);
+};
+
+export const weatherHours = createSelector(getWeatherHours, (weatherInHours) =>
+  weatherInHours
     .map((item: any) => item.time.substring(11, 16))
-    .filter((item: any) => item !== undefined);
+    .filter((item: any) => item !== undefined),
+);
+
+const getWeatherTemperatureInHours = (state: AppStateType) => {
+  return Object.values(state.mainPage.weatherInHours);
 };
 
-export const getWeatherTemperatureInHours = (state: AppStateType) => {
-  return Object.values(state.mainPage.weatherInHours)
-    .map((item: any) => Math.round(item.temp_c))
-    .filter((item: any, index) => item !== undefined && index !== 24);
+export const weatherTemperatureInHours = createSelector(
+  getWeatherTemperatureInHours,
+  (weatherInHours) =>
+    weatherInHours
+      .map((item: any) => Math.round(item.temp_c))
+      .filter((item: any, index) => item !== undefined && index !== 24),
+);
+
+const getIconsForWeatherInHours = (state: AppStateType) => {
+  return Object.values(state.mainPage.weatherInHours);
 };
 
-export const getIconsForWeatherInHours = (state: AppStateType) => {
-  return Object.values(state.mainPage.weatherInHours)
-    .map((item: any) => item.condition)
-    .filter((item: any, index) => item !== undefined && index !== 24)
-    .map((item: any) => item.text);
-};
+export const iconsForWeatherInHours = createSelector(
+  getIconsForWeatherInHours,
+  (weatherInHours) =>
+    weatherInHours
+      .map((item: any) => item.condition)
+      .filter((item: any, index) => item !== undefined && index !== 24)
+      .map((item: any) => item.text),
+);
 
 export const getWeatherSwitch = (state: AppStateType) => {
   return state.mainPage.weatherSwitcher;
 };
 
 export const getCurrentTime = (state: AppStateType) => {
-  return state.mainPage.time.substring(0, 5);
+  return state.mainPage.time;
 };
 
-export const getCurrentDate = (state: AppStateType) => {
-  return state.mainPage.date.substring(0, 26);
+export const currentTime = createSelector(getCurrentTime, (time) =>
+  time.substring(0, 5),
+);
+
+const getCurrentDate = (state: AppStateType) => {
+  return state.mainPage.date;
 };
+
+export const currentDate = createSelector(getCurrentDate, (date) =>
+  date.substring(0, 26),
+);
 
 export const getWeatherInDaysError = (state: AppStateType) => {
   return state.mainPage.weatherInDaysError;
