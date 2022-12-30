@@ -24,6 +24,5 @@ declare module 'styled-components' {
       fontSize: number;
     };
     spaces: Array<number>;
-    breakPoints: object;
   }
 }
