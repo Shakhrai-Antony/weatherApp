@@ -6,16 +6,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import '../WeatherInHours/swiperSlider.scss';
 import {
-  temperatureForSevenDays,
-  weatherForSevenDates,
-  weatherIconsForSevenDates,
-} from '@/store/selectors';
-import {
   DatesWrapper,
   TemperatureWrapper,
   WeatherIconsWrapper,
   WeatherImg,
-} from '@/styles/styles';
+} from '@/components/WeatherInDays/styles';
+import {
+  temperatureForSevenDays,
+  weatherForSevenDates,
+  weatherIconsForSevenDates,
+} from '@/store/selectors';
 
 const WeatherInDays = () => {
   const dates = useSelector(weatherForSevenDates);

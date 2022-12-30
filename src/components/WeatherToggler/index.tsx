@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import { WeatherTogglerWrapper } from '@/components/WeatherToggler/styles';
 import actionTypes from '@/store/constants';
-import { WeatherTogglerWrapper } from '@/styles/styles';
 
 const WeatherToggler = () => {
   const dispatch = useDispatch();

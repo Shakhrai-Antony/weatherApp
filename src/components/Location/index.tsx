@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import getCurrentDateAndTime from '@/API/dateAndTime';
 import getCurrentGeoLocation from '@/API/geoLocation';
+import { ErrorWrapper } from '@/components/Location/styles';
 import City from '@/components/LocationForms';
 import { setCity, setDate, setTime } from '@/store/mainReducer';
 import {
@@ -10,7 +11,6 @@ import {
   getWeatherInDaysError,
   getWeatherInHoursError,
 } from '@/store/selectors';
-import { ErrorWrapper } from '@/styles/styles';
 
 const Location = () => {
   const dispatch = useDispatch();

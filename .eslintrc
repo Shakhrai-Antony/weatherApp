@@ -35,6 +35,7 @@
     "default-param-last": "off",
     "no-return-assign": "off",
     "no-param-reassign": "off",
+    "import/prefer-default-export": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

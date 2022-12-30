@@ -1,10 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import {
+  ActionWrapper,
+  EventsWrapper,
+  TimeWrapper,
+} from '@/components/CalendarEvents/styles';
 import useCalendarEvents from '@/components/Hooks/useCalendarEvents';
 import { uuid } from '@/constants';
 import { currentEvents } from '@/store/selectors';
-import { ActionWrapper, EventsWrapper, TimeWrapper } from '@/styles/styles';
 
 const CalendarEvents = () => {
   const events = useSelector(currentEvents);

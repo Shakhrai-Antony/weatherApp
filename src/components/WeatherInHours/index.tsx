@@ -8,15 +8,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import './swiperSlider.scss';
 import {
+  HoursIconsWrapper,
+  HoursWrapper,
+  TemperatureInHoursWrapper,
+} from '@/components/WeatherInHours/styles';
+import {
   iconsForWeatherInHours,
   weatherHours,
   weatherTemperatureInHours,
 } from '@/store/selectors';
-import {
-  HoursIconsWrapper,
-  HoursWrapper,
-  TemperatureInHoursWrapper,
-} from '@/styles/styles';
 
 const WeatherInHours = () => {
   const hours = useSelector(weatherHours);

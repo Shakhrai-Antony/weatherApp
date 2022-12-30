@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { HandleLogin, HandleLogout } from '@/components/GoogleCalendarAuth';
-import { currentDate, currentTime, getCurrentUser } from '@/store/selectors';
 import {
   LogWrapper,
   UserDateWrapper,
   UserTimeWrapper,
   UserWrapper,
-} from '@/styles/styles';
+} from '@/components/GoogleCalendar/styles';
+import { HandleLogin, HandleLogout } from '@/components/GoogleCalendarAuth';
+import { currentDate, currentTime, getCurrentUser } from '@/store/selectors';
 
 const GoogleCalendar = () => {
   const user = useSelector(getCurrentUser);
