@@ -21,6 +21,7 @@ describe('App E2E', () => {
               date: '',
               weatherInDaysError: '',
               weatherInHoursError: '',
+              isFetching: false,
             },
             _persist: { version: -1, rehydrated: true },
           });
